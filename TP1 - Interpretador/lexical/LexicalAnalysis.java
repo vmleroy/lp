@@ -78,7 +78,7 @@ public class LexicalAnalysis implements AutoCloseable {
 					} else if (Character.isDigit(c)) {
 						lex.token += (char) c;
 						state = 10;
-					} else if (c == '`') {
+					} else if (c == 39) {
 						lex.token += (char) c;
 						state = 11;
 					} else if (c == -1) {
@@ -185,11 +185,12 @@ public class LexicalAnalysis implements AutoCloseable {
 				break;
 
 				case 11:
-					if (c != '`') {
+					if (c != 39) {
 						lex.token += (char) c;
 						state = 11;
 					} else {
 						lex.token += (char) c;
+						lex.type = TokenType.LITERAL;
 						state = 13;
 					}
 				break;
@@ -200,6 +201,8 @@ public class LexicalAnalysis implements AutoCloseable {
 		}
 		if (state == 12)
 			lex.type = st.findInTable(lex.token);
+
+		System.out.println("Token: " + lex.token + " || " + "Type: " + lex.type + "\n");
 
 		return lex;
 	}

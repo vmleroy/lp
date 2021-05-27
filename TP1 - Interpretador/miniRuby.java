@@ -1,6 +1,6 @@
 //import interpreter.command.BlocksCommand;
-import lexical.LexicalAnalysis;
 //import syntatic.SyntaticAnalysis;
+import lexical.LexicalAnalysis;
 
 public class miniRuby {
     public static void main (String args[]) {
@@ -15,6 +15,9 @@ public class miniRuby {
 
 		// Test if can open the archive, if not, throw exception, else run the program
 		try (LexicalAnalysis l = new LexicalAnalysis(args[0])) {
+			for (int i=0; i<6; i++)
+			 	l.nextToken();
+
 			//SyntaticAnalysis syntatic = new SyntaticAnalysis(l);
 
 			//BlocksCommand program = syntatic.start();

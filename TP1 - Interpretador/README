@@ -5,3 +5,4 @@ Dupla:
 Duvidas entre nois sev:
 	Precisa de colocar [], (), ` nas excessoes ta tabela? Perguntar pro andrei
 	O que eh esse serialVersionUID
+	Retirar .class dps de executar (Makefile pra facilitar)
