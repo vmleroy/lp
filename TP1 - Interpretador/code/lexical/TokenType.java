@@ -1,6 +1,6 @@
 /* List to set token types for easier maintece and upgrade of the system */
 
-package lexical;
+package code.lexical;
 
 public enum TokenType {
 	// Commands
@@ -11,16 +11,16 @@ public enum TokenType {
 	FOR,			// for
 	PRINT,			// print
 	PUTS,			// puts
+	ELSIF,			// else if
+	ELSE,			// else
 
 	// Constants
 	INTEGER,		// integer
 	STRING,			// string
-	ARRAY,			// arrays
-	BOOL, 			// boolean
+	// ARRAY,			// arrays
 
 	// Values
-	VAR, 			// variable
-	LITERAL,		// integer, string, array
+	ID, 			// variable
 
 	// Arithmetic Operands
 	ADD,			// + (can be used to unify on arrays and strings)
@@ -42,6 +42,10 @@ public enum TokenType {
 	CONTAIN, 		// ===
 	NOT,			// not (!)
 
+	// Connector
+	AND,			// &&
+	OR,				// ||
+
 	// Func
 	GETS,			// gets
 	RAND, 			// rand
@@ -51,7 +55,19 @@ public enum TokenType {
 
 	// Symbols
 	ASSIGN,			// = (min, max = max, min)
-	SEMICOLON,		// ;
+	SEMI_COLON,		// ;
+	BRACKETS_OP,	// (
+	BRACKETS_CL,	// )
+	SQR_BRACKETS_OP,// [
+	SQR_BRACKETS_CL,// ]
+	COMMA,			// ,
+	POINT,			// .
+
+	// Reserved words
+	IN,				// for
+	DO,				// {
+	THEN,			// {
+	END,			// }
 
 	// Specials
 	UNEXPECTED_EOF,

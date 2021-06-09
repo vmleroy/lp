@@ -1,6 +1,6 @@
 /* Class to create a map of all command and important stuff used on the program */
 
-package lexical;
+package code.lexical;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -20,6 +20,8 @@ public class SymbolTable {
 		st.put("for", TokenType.FOR);
 		st.put("print", TokenType.PRINT);
 		st.put("puts", TokenType.PUTS);
+		st.put("elsif", TokenType.ELSIF);
+		st.put("else", TokenType.ELSE);
 
 		// Arithmetic Operands
 		st.put("+", TokenType.ADD);
@@ -41,16 +43,32 @@ public class SymbolTable {
 		st.put("===", TokenType.CONTAIN);
 		st.put("!", TokenType.NOT);
 
+		// Connectors
+		st.put("and", TokenType.AND);
+		st.put("or", TokenType.OR);
+
 		// Funcs
 		st.put("gets", TokenType.GETS);
 		st.put("rand", TokenType.RAND);
-		st.put(".length", TokenType.LENGTH);
-		st.put(".to_i", TokenType.TOI);
-		st.put(".to_s", TokenType.TOS);
+		st.put("length", TokenType.LENGTH);
+		st.put("to_i", TokenType.TOI);
+		st.put("to_s", TokenType.TOS);
 
 		// Symbols
 		st.put("=", TokenType.ASSIGN);
-		st.put(";", TokenType.SEMICOLON);
+		st.put(";", TokenType.SEMI_COLON);
+		st.put("(", TokenType.BRACKETS_OP);
+		st.put(")", TokenType.BRACKETS_CL);
+		st.put("[", TokenType.SQR_BRACKETS_OP);
+		st.put("]", TokenType.SQR_BRACKETS_CL);
+		st.put(",", TokenType.COMMA);
+		st.put(".", TokenType.POINT);
+
+		// Reserved words
+		st.put("in", TokenType.IN);
+		st.put("do", TokenType.DO);
+		st.put("then", TokenType.THEN);
+		st.put("end", TokenType.END);
 	}
 
 	public boolean containsInTable (String token) {
@@ -58,6 +76,6 @@ public class SymbolTable {
 	}
 
 	public TokenType findInTable (String token) {
-		return this.containsInTable(token) ? st.get(token) : TokenType.VAR;
+		return this.containsInTable(token) ? st.get(token) : TokenType.ID;
 	}
 }

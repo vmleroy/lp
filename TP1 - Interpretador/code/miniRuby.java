@@ -1,6 +1,8 @@
-//import interpreter.command.BlocksCommand;
-//import syntatic.SyntaticAnalysis;
-import lexical.LexicalAnalysis;
+package code;
+// import code.lexical.Lexeme;
+import code.lexical.LexicalAnalysis;
+// import code.lexical.TokenType;
+import code.syntatic.SyntaticAnalysis;
 
 public class miniRuby {
     public static void main (String args[]) {
@@ -15,13 +17,17 @@ public class miniRuby {
 
 		// Test if can open the archive, if not, throw exception, else run the program
 		try (LexicalAnalysis l = new LexicalAnalysis(args[0])) {
-			for (int i=0; i<6; i++)
-			 	l.nextToken();
-
-			//SyntaticAnalysis syntatic = new SyntaticAnalysis(l);
-
+			// Lexeme lex;
+			// while((lex = l.nextToken()).type != TokenType.END_OF_FILE){
+			// 	System.out.println("Token: " + lex.token + " || " + "Type: " + lex.type + "\n");
+			// }
+			
+			SyntaticAnalysis syntatic = new SyntaticAnalysis(l);
+			syntatic.start();
+			
 			//BlocksCommand program = syntatic.start();
 			//program.execute();
+
 		} catch (Exception e) {
 			System.err.println("Internal error: " + e.getMessage());
 		}

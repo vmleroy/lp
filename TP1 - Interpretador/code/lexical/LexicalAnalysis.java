@@ -1,6 +1,6 @@
 /* "State machine" to recover tokens and discovers the syntax */
 
-package lexical;
+package code.lexical;
 
 import java.io.FileInputStream;		//Classe feita para manipular arquivos
 import java.io.PushbackInputStream; //Classe feita para ler os dados do arquivo alem de possuir mais funcoes
@@ -50,7 +50,7 @@ public class LexicalAnalysis implements AutoCloseable {
 					if (c == ' ' || c == '\t' || c == '\r' || c == '\n') {
 						state = 1;
 					} else if (c == '\n') {
-						line ++;
+						this.line ++;
 						state = 1;
 					} else if (c == '#') {
 						state = 2;
@@ -78,7 +78,7 @@ public class LexicalAnalysis implements AutoCloseable {
 					} else if (Character.isDigit(c)) {
 						lex.token += (char) c;
 						state = 10;
-					} else if (c == 39) {
+					} else if (c == '\'') {
 						lex.token += (char) c;
 						state = 11;
 					} else if (c == -1) {
@@ -93,7 +93,7 @@ public class LexicalAnalysis implements AutoCloseable {
 
 				case 2:
 					if (c == '\n') {
-						line ++;
+						this.line ++;
 						state = 1;
 					} else if (c == -1) {
 						lex.type = TokenType.END_OF_FILE;
@@ -157,9 +157,13 @@ public class LexicalAnalysis implements AutoCloseable {
 					if (c == '=') {
 						lex.token += (char) c;
 						state = 12;
+					} else if (c == -1) {
+						lex.type = TokenType.UNEXPECTED_EOF;
+						state = 13;
 					} else {
 						ungetc(c);
-						state = 12;
+						lex.type = TokenType.INVALID_TOKEN;
+						state = 13;
 					}
 				break;
 
@@ -177,20 +181,26 @@ public class LexicalAnalysis implements AutoCloseable {
 					if (Character.isDigit(c)) {
 						lex.token += (char) c;
 						state = 10;
+					} else if (c == -1) {
+						lex.type = TokenType.UNEXPECTED_EOF;
+						state = 13;
 					} else {
 						ungetc(c);
-						lex.type = TokenType.LITERAL;
+						lex.type = TokenType.INTEGER;
 						state = 13;
 					}
 				break;
 
 				case 11:
-					if (c != 39) {
+					if (c != '\'') {
 						lex.token += (char) c;
 						state = 11;
+					} else if (c == -1) {
+						lex.type = TokenType.UNEXPECTED_EOF;
+						state = 13;
 					} else {
 						lex.token += (char) c;
-						lex.type = TokenType.LITERAL;
+						lex.type = TokenType.STRING;
 						state = 13;
 					}
 				break;
@@ -201,8 +211,6 @@ public class LexicalAnalysis implements AutoCloseable {
 		}
 		if (state == 12)
 			lex.type = st.findInTable(lex.token);
-
-		System.out.println("Token: " + lex.token + " || " + "Type: " + lex.type + "\n");
 
 		return lex;
 	}
