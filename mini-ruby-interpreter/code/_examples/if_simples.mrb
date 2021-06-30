@@ -1,0 +1,7 @@
+x = gets.to_i;
+
+if x <= 5
+	puts 'O valor e menor que 5';
+else 
+    puts 'O valor e maior que 5';
+end

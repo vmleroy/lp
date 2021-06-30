@@ -1,0 +1,19 @@
+x = gets.to_i;
+
+if x <= 5
+	puts 'O valor e menor que 5';
+elsif x >= 7 and x <= 10
+	puts 'O valor e maior que 7 e menor que 10';
+elsif x > 10
+	puts 'O valor e maior que 10';
+else
+	puts 'O valor e 6';
+	y = gets.to_i;
+	if y > 0
+		puts 'Valor positivo';
+	elsif y < 0
+		puts 'Valor negativo';
+	else
+		puts 'valor nulo';
+	end
+end

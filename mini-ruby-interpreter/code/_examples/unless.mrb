@@ -1,0 +1,11 @@
+a = 1;
+
+unless a <= 2 then
+    puts 'Condicao verdadeira';
+    a = a + 2;
+else 
+    puts 'Condicao falsa';
+    a = a + 1;
+end
+
+puts a;

@@ -1,0 +1,12 @@
+#a=5;
+#b=6;
+#puts a;
+#puts b;
+#puts ;
+#a,b=b,a;
+#puts a;
+#puts b;
+
+a = [1, 2, 3];
+puts a;
+

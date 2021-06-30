@@ -1,0 +1,58 @@
+Dupla:
+	* Arthur Severo
+	* Victor Le Roy
+
+Compilar: 
+	Terminal pasta code
+	javac miniRuby.java -d classes
+	java -cp classes miniRuby [source file] -> ./_examples/[source file]
+
+	FunctionExpr
+	============
+
+	v = resultado de avaliar a expressao
+	se op for LengthOp
+	se v não for arranjo
+		abortar com operacao invalida
+	pegar o arranjo do v
+	contar a quantidade
+	criar IntegerValue com essa quantidade
+
+	se op for ToIntOp
+	se v nao for string
+		abortar com operacao invalida
+	pegar a string de v
+	converter a string para inteiro
+	criar IntegerValue com o valor resultante
+	
+	se op for ToStringOp
+	pegar a string de v
+	criar StringValue com essa string
+
+
+	AssignCommand
+	=============
+
+	se o tamanho da lista left for diferente do tamanho da lista right
+	abortar com operacao invalida
+
+	List<Value<?>> temp = percorrer a lista right avaliando as expressoes
+	i = 0;
+	percorrer a lista left onde, para cada expr, fazer
+	se expr não for SetExpr
+		abortar com operacao invalida
+
+	SetExpr sexpr = converter expr
+	sexpr->setValue(temp[i]);
+	i++;
+
+	ArrayExpr
+	=========
+
+	Vector<Value<?>> res;
+	foreach e in exprs:
+	Value<?> v = e.expr()
+	res.add(v)
+
+	ArrayValue av = new ArrayValue(res);
+	return av;

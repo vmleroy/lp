@@ -1,0 +1,15 @@
+x = 0;
+y = 1;
+while x < 10 and y == 1 do
+    x = x + 1;
+end
+puts 'x = ' + x.to_s;
+
+y = [];
+x = 0;
+until x >= 10 do
+    y = y + [x];
+    x = x + 1;
+end
+z = y.length;
+puts 'y = ' + y.to_s + ' size of array = ' + z.to_s;

@@ -1,0 +1,28 @@
+#a = 5;
+#b = 5;
+#c = 5;
+#d = a + b + c;
+#puts d;
+
+#a = 'oi';
+#b = ',tudo bem?';
+#c = a + b;
+#puts c;
+
+#a = 5;
+#b = 2;
+#c = 5;
+#d = a * b + c;
+#puts d;
+
+#a = 2;
+#b = 3;
+#a = a**b;
+#puts a;
+
+a = [1, 2, 3];
+b = [4 ,5 ,6];
+a = a + b;
+a = a + [7];
+a = a + [5];
+puts a;

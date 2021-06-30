@@ -1,0 +1,9 @@
+#a = gets;
+#puts a;
+#b = rand;
+#puts b;
+
+c = gets.to_i;
+d = gets.to_s;
+puts c;
+puts d;

@@ -1,0 +1,4 @@
+#print 'Print test';
+#puts 'Puts test';
+x = 10;
+puts 'Puts test' if x >= 10;

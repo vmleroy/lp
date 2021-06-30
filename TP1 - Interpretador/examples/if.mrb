@@ -1,8 +1,0 @@
-if x < sum
-	puts 'O valor e maior que ' + x.to_s;
-elsif x > sum
-	puts 'O valor e menor que ' + x.to_s;
-else
-	puts 'Parabens, voce acertou.';
-	found = 1;
-end
