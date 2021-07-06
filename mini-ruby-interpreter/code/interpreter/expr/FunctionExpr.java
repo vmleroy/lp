@@ -22,6 +22,7 @@ public class FunctionExpr extends Expr{
     @Override
     public Value<?> expr () {
         Value<?> v = expr.expr();
+        //System.out.println(v.value());
 
         if (op == FunctionOp.LengthOp) {
             if (!(v instanceof ArrayValue)) {
@@ -38,7 +39,9 @@ public class FunctionExpr extends Expr{
             if (!(v instanceof StringValue)) {
                 Utils.abort(super.getLine());
             } else {
-                int n = Integer.parseInt(v.toString());                
+                String s = v.toString();
+                s = s.replace("\'", "");
+                int n = Integer.parseInt(s);                
                 IntegerValue niv = new IntegerValue(n);
                 v = niv;
             }
