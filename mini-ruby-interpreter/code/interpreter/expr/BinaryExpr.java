@@ -32,11 +32,21 @@ public class BinaryExpr extends Expr {
                     if (left instanceof IntegerValue && right instanceof IntegerValue) {
                         int lv = Integer.parseInt(left.toString());
                         int rv = Integer.parseInt(right.toString());
-                        //System.out.println(rv);
+                        System.out.println(lv + " " + rv);
                         Vector<Value<?>> res = new Vector<Value<?>>();
                         
-                        int i;
-                        for (i=lv; i<=rv+1; i++) {
+                        if(lv < rv) {
+                            for (int i=lv; i<=rv; i++) {
+                                IntegerValue iv = new IntegerValue(i);
+                                res.add(iv);
+                            }
+                        } else if (lv > rv) {
+                            for (int i=lv; i>=rv; i--) {
+                                IntegerValue iv = new IntegerValue(i);
+                                res.add(iv);
+                            }
+                        } else {
+                            int i = lv;
                             IntegerValue iv = new IntegerValue(i);
                             res.add(iv);
                         }
@@ -55,11 +65,17 @@ public class BinaryExpr extends Expr {
                         int rv = Integer.parseInt(right.toString());
                         Vector<Value<?>> res = new Vector<Value<?>>();
                         
-                        int i;
-                        for (i=lv; i<rv+1; i++) {
-                            IntegerValue iv = new IntegerValue(i);
-                            res.add(iv);
-                        }
+                        if(lv < rv) {
+                            for (int i=lv; i<rv; i++) {
+                                IntegerValue iv = new IntegerValue(i);
+                                res.add(iv);
+                            }
+                        } else if (lv > rv) {
+                            for (int i=lv; i>rv; i--) {
+                                IntegerValue iv = new IntegerValue(i);
+                                res.add(iv);
+                            }
+                        } 
                         
                         ArrayValue nav = new ArrayValue(res);
                         v = nav;
@@ -93,12 +109,12 @@ public class BinaryExpr extends Expr {
 
                     } else if (left instanceof StringValue && right instanceof StringValue) {
                         String lv = left.toString();
-                        lv = lv.replace("\'", "");
+                        //lv = lv.replace("\'", "");
                         String rv = right.toString();
-                        rv = rv.replace("\'", "");
+                        //rv = rv.replace("\'", "");
                         String value = lv + rv;
-                        String cotes = "\'";
-                        value = cotes + value + cotes;
+                        // String cotes = "\'";
+                        // value = cotes + value + cotes;
                         StringValue siv = new StringValue (value);
                         v = siv;
 

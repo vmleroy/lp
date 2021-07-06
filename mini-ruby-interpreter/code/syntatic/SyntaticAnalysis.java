@@ -311,13 +311,12 @@ public class SyntaticAnalysis {
 		Expr expr = null;
 	
         if (current.type == TokenType.ADD 	 || current.type == TokenType.SUB 		  || current.type == TokenType.INTEGER  ||
-            current.type == TokenType.STRING || current.type == TokenType.OPEN_PAR || current.type == TokenType.GETS 	||
+            current.type == TokenType.STRING || current.type == TokenType.OPEN_PAR 	  || current.type == TokenType.GETS 	||
             current.type == TokenType.RAND 	 || current.type == TokenType.ID 		  || current.type == TokenType.OPEN_BRA) {
 
             expr = procExpr();
         }		
-		
-		
+				
 
         OutputCommand ocmd = new OutputCommand(line, op, expr);
 		Command cmd = null;
@@ -761,6 +760,7 @@ public class SyntaticAnalysis {
 	// <string>
 	private ConstExpr procString() throws LexicalException, IOException {
 		String tmp = current.token;
+		
 		eat(TokenType.STRING);
 		int line = lex.getLine();
 

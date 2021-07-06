@@ -40,7 +40,7 @@ public class FunctionExpr extends Expr{
                 Utils.abort(super.getLine());
             } else {
                 String s = v.toString();
-                s = s.replace("\'", "");
+                //s = s.replace("\'", "");
                 int n = Integer.parseInt(s);                
                 IntegerValue niv = new IntegerValue(n);
                 v = niv;

@@ -70,7 +70,23 @@ public class AccessExpr extends SetExpr {
                     Utils.abort(super.getLine());
                 }
 
-                vector.set(index, value);                
+                if (index >= vector.size()) {
+                    if (index == vector.size() ) {
+                        vector.add(value);
+                    } else {
+                        for (int i = vector.size(); i <= index; i++) {
+                            if (index == vector.size() ) {
+                                vector.add(value);
+                            } else {
+                                StringValue _null = new StringValue("");
+                                vector.add(_null);
+                            }
+                        }
+                    }
+                } else {
+                    vector.set(index, value);                
+                }
+
                 ArrayValue nav = new ArrayValue (vector);
                                 
                 //System.out.println("Access" + " - " + nav.value());
@@ -92,8 +108,7 @@ public class AccessExpr extends SetExpr {
                 String n = sv.value();
                 StringValue nsv = new StringValue(n);
                 //System.out.println("Access String" + " - " + nsv.value());             
-                sexpr.setValue(nsv);
-                
+                sexpr.setValue(nsv);                
                 
             } else {
                 //System.out.println("Access Array" + " - " + value.value());             

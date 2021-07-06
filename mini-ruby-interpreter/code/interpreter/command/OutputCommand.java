@@ -24,7 +24,7 @@ public class OutputCommand extends Command {
         if (expr != null) {
             Value<?> v = expr.expr();
             String str = v.toString();
-            str = str.replace("\'", "");
+            //str = str.replace("\'", "");
             System.out.print(str);
         }
 

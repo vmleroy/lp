@@ -200,6 +200,7 @@ public class LexicalAnalysis implements AutoCloseable {
 						state = 13;
 					} else {
 						lex.token += (char) c;
+						lex.token = lex.token.replace("\'", "");
 						lex.type = TokenType.STRING;
 						state = 13;
 					}

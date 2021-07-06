@@ -1,0 +1,8 @@
+#print 'Print test';
+#puts 'Puts test';
+x = 10;
+#puts 'Puts test' if x >= 10;
+
+#puts x.to_s + ' vale a 10';
+
+puts 3;
