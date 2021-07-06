@@ -1,2 +1,2 @@
 # LINGUAGENS DE PROGRAMACAO
-Disciplina de Linguagens de Programacao cursada na universidade CEFET-MG
+Programing language discipline attended at CEFET-MG
