@@ -79,7 +79,7 @@ public class LexicalAnalysis implements AutoCloseable {
 						lex.token += (char) c;
 						state = 10;
 					} else if (c == '\'') {
-						lex.token += (char) c;
+						//lex.token += (char) c;
 						state = 11;
 					} else if (c == -1) {
 						lex.type = TokenType.END_OF_FILE;
@@ -199,8 +199,8 @@ public class LexicalAnalysis implements AutoCloseable {
 						lex.type = TokenType.UNEXPECTED_EOF;
 						state = 13;
 					} else {
-						lex.token += (char) c;
-						lex.token = lex.token.replace("\'", "");
+						//lex.token += (char) c;
+						//lex.token = lex.token.replace("\'", "");
 						lex.type = TokenType.STRING;
 						state = 13;
 					}
