@@ -3,6 +3,7 @@ Group:
 	* Victor Le Roy
 
 Compile: 
-	Terminal code dir
-	javac miniRuby.java -d classes
-	java -cp classes miniRuby [source file] -> ./_examples/[source file]
+	Start terminal at code dir
+		* javac miniRuby.java -d classes
+		* java -cp classes miniRuby [source file] 
+			To try examples, change [source file] for -> ./_examples/[dir]/[source file]
