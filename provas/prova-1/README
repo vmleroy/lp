@@ -1,0 +1,8 @@
+Prova realizada pela dupla:
+    * Arthur Severo de Souza
+    * Victor Le Roy Matos
+    
+Para compilar o programa: 
+    Terminal aberto na pasta code
+	javac mjar.java -d classes
+	java -cp classes mjar [source file] -> ./_examples/[source file]
