@@ -11,6 +11,6 @@ trocar n = change n [100, 50, 10, 1] []
 change :: Int -> [Int] -> [Int] -> [Int]
 change 0 (x:y) l = l
 change z (x:y) l
-        | z > x  = change (z-x) (x:y) (x:l)
-        | z == x = (x:l)
-        | otherwise = change z y l
+    | z > x  = change (z-x) (x:y) (x:l)
+    | z == x = (x:l)
+    | otherwise = change z y l

@@ -7,11 +7,11 @@
 
 primo :: Integer -> Bool
 primo x 
- | x == 1 = False
- | otherwise = primoQ x (x - 1)
+    | x == 1 = False
+    | otherwise = primoQ x (x - 1)
 
 primoQ :: Integer -> Integer -> Bool
 primoQ x y
- | y == 1 = True
- | x `mod` y == 0 = False
- | otherwise = primoQ x (y - 1)
+    | y == 1 = True
+    | x `mod` y == 0 = False
+    | otherwise = primoQ x (y - 1)

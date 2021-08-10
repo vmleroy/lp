@@ -8,11 +8,11 @@ perfeito x = igual x (somaDosDivisores x (x - 1))
 
 somaDosDivisores :: Integer -> Integer -> Integer
 somaDosDivisores x y
- | y == 1 = 1
- | x `mod` y == 0 = y + somaDosDivisores x (y - 1)
- | otherwise = somaDosDivisores x (y - 1)
+    | y == 1 = 1
+    | x `mod` y == 0 = y + somaDosDivisores x (y - 1)
+    | otherwise = somaDosDivisores x (y - 1)
 
 igual :: Integer -> Integer -> Bool
 igual x y
- | x == y = True
- | otherwise = False
+    | x == y = True
+    | otherwise = False

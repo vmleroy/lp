@@ -7,7 +7,7 @@ removerFim :: Int -> [Integer] -> [Integer]
 removerFim _ [] = []
 removerFim 0 l = l
 removerFim n (x:l)
-        | n > length(l) = []
-        | length(l) > n = [x] ++ (removerFim n l)
-        | otherwise = [x]
+    | n > length(l) = []
+    | length(l) > n = [x] ++ (removerFim n l)
+    | otherwise = [x]
 

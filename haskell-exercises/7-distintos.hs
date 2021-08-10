@@ -9,11 +9,11 @@
 distintos :: [Integer] -> Bool
 distintos [] = True
 distintos (x:y)
- | igualNoArray x y = False
- | otherwise = distintos y
+    | igualNoArray x y = False
+    | otherwise = distintos y
 
 igualNoArray :: Integer -> [Integer] -> Bool
 igualNoArray x [] = False
 igualNoArray x (y:l)
- | x == y = True
- | otherwise = igualNoArray x l
+    | x == y = True
+    | otherwise = igualNoArray x l

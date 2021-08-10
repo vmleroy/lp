@@ -4,8 +4,7 @@
 -- Ex.: > potencia 2 3 -- 8=2*2*2
 -- 8
 
-potencia :: Integer -> Integer -> Integer
-potencia x y
- | y == 1 = x
- | y == 0 = 1
- | otherwise = x * potencia x (y - 1)
+potencia :: Int -> Int -> Int
+potencia _ 0 = 1
+potencia x 1 = x
+potencia x y = x * potencia y (x-1) 

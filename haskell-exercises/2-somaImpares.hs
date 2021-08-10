@@ -6,5 +6,5 @@
 somaImpares :: [Integer] -> Integer
 somaImpares [] = 0
 somaImpares (x:y)
- | x `mod` 2 == 0 = somaImpares y
- | otherwise = x + somaImpares y
+    | x `mod` 2 == 0 = somaImpares y
+    | otherwise = x + somaImpares y

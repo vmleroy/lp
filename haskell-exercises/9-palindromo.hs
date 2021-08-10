@@ -9,5 +9,5 @@ reverter (a:l) = (reverter l) ++ [a]
 
 palindromo :: [Integer] -> Bool
 palindromo l
-            |  l == reverter(l) = True
-            | otherwise = False
+    |  l == reverter(l) = True
+    | otherwise = False

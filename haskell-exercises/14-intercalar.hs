@@ -8,6 +8,6 @@ intercalar [] [] = []
 intercalar l  [] = l
 intercalar [] l  = l
 intercalar (x:l) (y:k)
-            | x > y  = ( [y,x] ++ (intercalar l k) )
-            | x < y  = ( [x,y] ++ (intercalar l k) )
-            | x == y = ( [x,y] ++ (intercalar l k) )
+    | x > y  = ( [y] ++ ( intercalar (x:l) k ) )
+    | x < y  = ( [x] ++ ( intercalar l (y:k) ) )
+    | x == y = ( [x] ++ ( intercalar l (y:k) ) )

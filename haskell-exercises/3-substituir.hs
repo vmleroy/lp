@@ -6,5 +6,5 @@
 substituir :: Integer -> Integer -> [Integer] -> [Integer]
 substituir x y [] = []
 substituir x y (a:b)
- | a == x = (y:(substituir x y b))
- | otherwise = (a:(substituir x y b)) 
+    | a == x = (y:(substituir x y b))
+    | otherwise = (a:(substituir x y b)) 

@@ -5,7 +5,7 @@
 
 binario :: Integer -> [Integer]
 binario x
- | x == 1 = [1]
- | x == 0 = [0]
- | x `mod` 2 == 0 = (binario (x `div` 2)) ++ [0]
- | otherwise = (binario (x `div` 2)) ++ [1]
+    | x == 1 = [1]
+    | x == 0 = [0]
+    | x `mod` 2 == 0 = (binario (x `div` 2)) ++ [0]
+    | otherwise = (binario (x `div` 2)) ++ [1]
